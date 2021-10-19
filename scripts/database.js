@@ -1,3 +1,7 @@
+/*
+    All of the hard-coded data is immutable
+*/
+
 const database = {
     clays: [
         {
@@ -19,7 +23,7 @@ const database = {
             id: 4,
             clay: "Porcelain",
             pricePerPound: 4.96
-        },
+        }
     ],
     glazes: [
         {
@@ -95,3 +99,28 @@ const database = {
         }
     ]
 }
+
+export const getClays = () => {
+    return database.clays.map(clay => ({...clay}))
+}
+
+export const getKilns = () => {
+    return database.kilns.map(kiln => ({...kiln}))
+}
+
+export const getShapes = () => {
+    return database.shapes.map(shape => ({...shape}))
+}
+
+export const getGlazes = () => {
+    return database.glazes.map(glaze => ({...glaze}))
+}
+
+export const getOrders = () => {
+    return database.orders.map(order => ({...order}))
+}
+
+export const getCustomers = () => {
+    return database.customers.map(customer => ({...customer}))
+}
+
