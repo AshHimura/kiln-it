@@ -5,7 +5,7 @@
         State = Data as it exists right now
 */
 
-import { getClays } from "./database.js";
+import { getClays, setClay } from "./database.js";
 
 // State variable (copy of the data)
 const allTheClays = getClays()
@@ -13,10 +13,14 @@ const allTheClays = getClays()
 document.addEventListener(
     "change",
     (changeEvent) => {
+
         if (changeEvent.target.name === "clay") {
             const primaryKey = changeEvent.target.value
-
+            const primaryKeyAsInt = parseInt(primaryKey)
+            
+            setClay( primaryKeyAsInt )
         }
+
     }
 )
 

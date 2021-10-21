@@ -5,7 +5,7 @@
         State = Data as it exists right now
 */
 
-import { getKilns } from "./database.js";
+import { getKilns, setKiln } from "./database.js";
 
 // State variable (copy of the data)
 const allTheKilns = getKilns()
@@ -15,7 +15,7 @@ document.addEventListener(
     (changeEvent) => {
         if (changeEvent.target.name === "kiln") {
             const primaryKey = changeEvent.target.value
-
+            setKiln( parseInt(primaryKey) )
         }
     }
 )

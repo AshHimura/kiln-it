@@ -97,7 +97,28 @@ const database = {
             shape: "Paperweight",
             difficultyLevel: 1
         }
-    ]
+    ],
+    potBuilder: {
+
+    }
+}
+
+// Track what the user clicked on when they choose a clay
+export const setClay = ( clayId ) => {
+    // add the clayId property to the potBuilder object using dot notation
+    database.potBuilder.clayId = clayId
+}
+export const setGlaze = ( glazeId ) => {
+    // add the glazeId property to the potBuilder object using dot notation
+    database.potBuilder.glazeId = glazeId
+}
+export const setKiln = ( kilnId ) => {
+    // add the kilnId property to the potBuilder object using dot notation
+    database.potBuilder.kilnId = kilnId
+}
+export const setShape = ( shapeId ) => {
+    // add the shapeId property to the potBuilder object using dot notation
+    database.potBuilder.shapeId = shapeId
 }
 
 export const getClays = () => {

@@ -5,7 +5,7 @@
         State = Data as it exists right now
 */
 
-import { getShapes } from "./database.js";
+import { getShapes, setShape } from "./database.js";
 
 // State variable (copy of the data)
 const allTheShapes = getShapes()
@@ -15,7 +15,7 @@ document.addEventListener(
     (changeEvent) => {
         if (changeEvent.target.name === "shape") {
             const primaryKey = changeEvent.target.value
-
+            setShape( parseInt(primaryKey) )
         }
     }
 )

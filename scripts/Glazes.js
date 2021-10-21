@@ -5,7 +5,7 @@
         State = Data as it exists right now
 */
 
-import { getGlazes } from "./database.js";
+import { getGlazes, setGlaze } from "./database.js";
 
 // State variable (copy of the data)
 const allTheGlazes = getGlazes()
@@ -15,7 +15,9 @@ document.addEventListener(
     (changeEvent) => {
         if (changeEvent.target.name === "glaze") {
             const primaryKey = changeEvent.target.value
+            const primaryKeyAsInt = parseInt( primaryKey )
 
+            setGlaze( primaryKeyAsInt )
         }
     }
 )
