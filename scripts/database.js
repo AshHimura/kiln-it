@@ -60,7 +60,9 @@ const database = {
         },
     ],
     customers: [],
-    orders: [],
+    orders: [
+
+    ],
     shapes: [
         {
             id: 1,
@@ -101,6 +103,38 @@ const database = {
     potBuilder: {
 
     }
+}
+
+// function to add potBuilder object to the orders array
+
+export const placeOrder = () => {
+    // capture timestamp and add it to the potBuilder
+    const date = new Date()
+
+    database.potBuilder.timestamp = date.toLocaleDateString()
+
+    // add a unique identifier (id) to the potBuilder
+    if ( database.orders.length === 0 ) {
+
+        database.potBuilder.id = 1
+
+    } else {
+
+        const lastIndex = database.orders.length - 1
+
+        const newId = database.orders[lastIndex].id + 1
+
+        database.potBuilder.id = newId
+
+    }
+
+    // add potBuilder object to the orders array (permanent state)
+
+    database.orders.push(database.potBuilder)
+
+    database.potBuilder = {}
+
+    debugger
 }
 
 // Track what the user clicked on when they choose a clay
