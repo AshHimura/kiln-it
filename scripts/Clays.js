@@ -14,25 +14,17 @@ document.addEventListener(
     "change",
     (changeEvent) => {
         if (changeEvent.target.name === "clay") {
-            const primaryKey = changeEvent.target.value   // "4"
+            const primaryKey = changeEvent.target.value
 
-            // find() array method is for finding a single item in the array
-            const theChosenClay = allTheClays.find(
-                (clayObj) => {
-                    if (parseInt(primaryKey) === clayObj.id) {
-                        return true
-                    }
-                    return false
-                }
-            )
-
-            window.alert(theChosenClay.clay)
         }
     }
 )
 
 export const ClayHTML = () => {
-    let html = "<header> <h2>Choose a clay</h2> </header>"
+    let html = `
+    <article class="optionGroup">
+        <header> <h2>Choose a glaze</h2> </header>
+    `
 
     // Iterate over our copy of the clay object array
     for (const clayObj of allTheClays) {
@@ -44,6 +36,8 @@ export const ClayHTML = () => {
         </div>
         `
     }
+
+    html += "</article>"
 
     return html
 }
