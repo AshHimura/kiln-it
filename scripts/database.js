@@ -128,7 +128,7 @@ export const placeOrder = () => {
 
     }
 
-    // add potBuilder object to the orders array (permanent state)
+    // add potBuilder object (transient state) to the orders array (permanent state)
 
     database.orders.push(database.potBuilder)
 
