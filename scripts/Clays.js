@@ -23,7 +23,7 @@ document.addEventListener(
 export const ClayHTML = () => {
     let html = `
     <article class="optionGroup">
-        <header> <h2>Choose a glaze</h2> </header>
+        <header> <h2>Choose a clay</h2> </header>
     `
 
     // Iterate over our copy of the clay object array
