@@ -3,10 +3,12 @@ import { GlazeHTML } from "./Glazes.js";
 import { KilnHTML } from "./Kilns.js";
 import { OrderButtonHTML } from "./OrderButton.js";
 import { ShapeHTML } from "./Shapes.js";
+import { OrderList } from "./Orders.js";
 
 const mainContainer = document.querySelector("#container")
 
-mainContainer.innerHTML = `
+const renderHTML = () => {
+    mainContainer.innerHTML = `
     <section class="allOptions">
     ${ClayHTML()}
     ${KilnHTML()}
@@ -15,5 +17,14 @@ mainContainer.innerHTML = `
 
     </section>
     ${OrderButtonHTML()}
+    ${OrderList()}
 `
+}
 
+renderHTML()
+
+document.addEventListener("ordersStateHasChanged",
+    () => {
+        renderHTML()
+    }
+)

@@ -61,6 +61,14 @@ const database = {
     ],
     customers: [],
     orders: [
+        {
+            clayId: 4,
+            glazeId: 3,
+            id: 1,
+            kilnId: 3,
+            shapeId: 6,
+            timestamp: "10/22/2021"
+        }
 
     ],
     shapes: [
@@ -114,7 +122,7 @@ export const placeOrder = () => {
     database.potBuilder.timestamp = date.toLocaleDateString()
 
     // add a unique identifier (id) to the potBuilder
-    if ( database.orders.length === 0 ) {
+    if (database.orders.length === 0) {
 
         database.potBuilder.id = 1
 
@@ -134,48 +142,50 @@ export const placeOrder = () => {
 
     database.potBuilder = {}
 
-    debugger
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("ordersStateHasChanged"))
+
 }
 
 // Track what the user clicked on when they choose a clay
-export const setClay = ( clayId ) => {
+export const setClay = (clayId) => {
     // add the clayId property to the potBuilder object using dot notation
     database.potBuilder.clayId = clayId
 }
-export const setGlaze = ( glazeId ) => {
+export const setGlaze = (glazeId) => {
     // add the glazeId property to the potBuilder object using dot notation
     database.potBuilder.glazeId = glazeId
 }
-export const setKiln = ( kilnId ) => {
+export const setKiln = (kilnId) => {
     // add the kilnId property to the potBuilder object using dot notation
     database.potBuilder.kilnId = kilnId
 }
-export const setShape = ( shapeId ) => {
+export const setShape = (shapeId) => {
     // add the shapeId property to the potBuilder object using dot notation
     database.potBuilder.shapeId = shapeId
 }
 
 export const getClays = () => {
-    return database.clays.map(clay => ({...clay}))
+    return database.clays.map(clay => ({ ...clay }))
 }
 
 export const getKilns = () => {
-    return database.kilns.map(kiln => ({...kiln}))
+    return database.kilns.map(kiln => ({ ...kiln }))
 }
 
 export const getShapes = () => {
-    return database.shapes.map(shape => ({...shape}))
+    return database.shapes.map(shape => ({ ...shape }))
 }
 
 export const getGlazes = () => {
-    return database.glazes.map(glaze => ({...glaze}))
+    return database.glazes.map(glaze => ({ ...glaze }))
 }
 
 export const getOrders = () => {
-    return database.orders.map(order => ({...order}))
+    return database.orders.map(order => ({ ...order }))
 }
 
 export const getCustomers = () => {
-    return database.customers.map(customer => ({...customer}))
+    return database.customers.map(customer => ({ ...customer }))
 }
 
